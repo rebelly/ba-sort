@@ -2,13 +2,32 @@ using System;
 
 class Program
 {
-    static void output_mass(int[] mass)
+     static void output_mass(int[] mass)
     {
         for (int i = 0; i < mass.Length; i++)
         {
-            Console.WriteLine(mass[i]);
+            Console.Write($"{mass[i] } ");
         }
+        Console.WriteLine("");
     }
+    static int[] fastsort(int[] mass, int f, int l){
+		int mid = mass[mass.Length/2];
+		int temp;
+		while ( l > f)
+		{
+			while (mass[f] < mid) f++;
+			while (mass[l] > mid) l--;
+			if (l >= f) {
+				temp = mass[f];
+				mass[f] = mass[l];
+				mass[l] = temp;
+				l--;
+				f++;
+				}
+			}
+			return mass;
+		}
+		
     static void input_mass(out int[] mass, int a, int b)
     {
         mass = new int[b - a + 1];
